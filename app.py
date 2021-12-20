@@ -25,11 +25,11 @@ def index():
 def join(message):
     print(session.get('username'))
     room = session.get('room')
-    join_room(room)
+    join_room(message["room"])
     emit('status', {'msg': message["username"] + ' has entered the room.'}, room=message["room"])
 @socketio.on('text')
 def text(message):
     room = session.get('room')
-    emit('message', {'msg': message['username'] + ' : ' + message['msg']}, room=room)
+    emit('message', {'msg': message['username'] + ' : ' + message['msg']}, room=message["room"])
 if __name__ == '__main__':
     socketio.run(app,debug=False)
