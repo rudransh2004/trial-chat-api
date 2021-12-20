@@ -23,8 +23,8 @@ def index():
     return render_template("none.html",session=session)
 @socketio.on('join')
 def join(message):
-    print(session.get('username'))
-    room = session.get('room')
+    print(session.get('room'))
+    
     join_room(message["room"])
     emit('status', {'msg': message["username"] + ' has entered the room.'}, room=message["room"])
 @socketio.on('text')
