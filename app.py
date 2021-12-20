@@ -22,7 +22,7 @@ def index():
         session['room'] = room
         print(session.get('username'))
         print(session.get('room'))
-     return render_template("none.html",session=session)
+        return render_template("none.html",session=session)
 @socketio.on('join')
 def join(message):
     room = session.get('room')
