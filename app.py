@@ -20,7 +20,7 @@ def index():
         #Store the data in session
         session['username'] = username
         session['room'] = room
-        return "done"
+        return render_template("none.html",session=session)
 @socketio.on('join')
 def join(message):
     room = session.get('room')
