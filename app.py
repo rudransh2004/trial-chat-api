@@ -26,7 +26,7 @@ def join(message):
     print(session.get('username'))
     room = session.get('room')
     join_room(room)
-    emit('status', {'msg':  session.get('username') + ' has entered the room.'}, room=room)
+    emit('status', {'msg': message["username"] + ' has entered the room.'}, room=message["room"])
 @socketio.on('text')
 def text(message):
     room = session.get('room')
