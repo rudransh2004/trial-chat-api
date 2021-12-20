@@ -21,12 +21,12 @@ def index():
         session['username'] = username
         session['room'] = room
         return "done"
-@socketio.on('join',namespace="/")
+@socketio.on('join')
 def join(message):
     room = session.get('room')
     join_room(room)
     emit('status', {'msg':  session.get('username') + ' has entered the room.'}, room=room)
-@socketio.on('text',namespace="/")
+@socketio.on('text')
 def text(message,namespace="/"):
     room = session.get('room')
     emit('message', {'msg': session.get('username') + ' : ' + message['msg']}, room=room)
