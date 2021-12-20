@@ -30,6 +30,6 @@ def join(message):
 @socketio.on('text')
 def text(message):
     room = session.get('room')
-    emit('message', {'msg': message['username'] + ' : ' + message['msg']}, room=message["room"])
+    emit('message', {'msg': message['username'] + ' : ' + message['msg']}, room=room)
 if __name__ == '__main__':
     socketio.run(app,debug=False)
