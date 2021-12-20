@@ -9,7 +9,7 @@ app.config['SESSION_TYPE'] = 'filesystem'
 
 Session(app)
 
-socketio = SocketIO(app,logger=True, engineio_logger=True,cors_allowed_origins="*" ,manage_session=False)
+socketio = SocketIO(app,logger=True, engineio_logger=True,cors_allowed_origins="*" ,manage_session=True)
 
 
 @app.route('/', methods=['GET', 'POST'])
