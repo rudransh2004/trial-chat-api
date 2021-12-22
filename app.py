@@ -23,13 +23,14 @@ def index():
     return render_template("none.html",session=session)
 @socketio.on('join')
 def join(message):
-    print(session.get('room'))
+   
     
     join_room(message["room"])
     emit('status', {'msg': message["username"] + ' has entered the room.'}, room=message["room"])
 @socketio.on('text')
 def text(message):
     room = str(message['room'])
+    print(room)
     emit('message', {'msg': message['username'] + ' : ' + message['msg']}, room=room)
 if __name__ == '__main__':
     socketio.run(app,debug=False)
