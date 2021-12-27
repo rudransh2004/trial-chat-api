@@ -35,7 +35,7 @@ def text(message):
 @socketio.on('image')
 def image(message):
     room = str(message['room'])
-    join_room(message["room"])
+    
     emit('imagesend',{'msg':'none',"img":message['img'],"sentByMe":message['sentByMe']}, room=message["room"])
 if __name__ == '__main__':
     socketio.run(app,debug=False)
