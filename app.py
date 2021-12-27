@@ -39,6 +39,6 @@ def image(message):
 @socketio.on('video')
 def video(message):
     room = str(message['room'])
-    emit('videosend',{'msg':'none',"video":message['video'],'sentByMe':message['sentByMe']},room = message["room"])
+    emit('videosend',{'msg':'video',"video":message['video'],'sentByMe':message['sentByMe']},room = message["room"])
 if __name__ == '__main__':
     socketio.run(app,debug=False)
