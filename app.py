@@ -26,7 +26,7 @@ def index():
 @socketio.on('join')
 def join(message):
     join_room(message["room"])
-    emit('status', {'msg': message["username"] + ' has entered the room.'}, room=message["room"])
+    emit('status', {'msg': message["username"] + ' has entered the room.',"sentByMe":message["sentByMe"]}, room=message["room"])
 @socketio.on('text')
 def text(message):
     room = str(message['room'])
