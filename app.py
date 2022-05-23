@@ -26,19 +26,19 @@ def index():
 @socketio.on('join')
 def join(message):
     join_room(message["room"])
-    emit('status', {'msg': message["username"] + ' has entered the room.',"sentByMe":message["sentByMe"]}, room=message["room"])
+    emit('status', {'msg': message["username"] + ' has entered the room.',"sentByMe":message["sentByMe"],"img":"none","video":"none"}, room=message["room"])
 @socketio.on('text')
 def text(message):
     room = str(message['room'])
     join_room(message["room"])
-    emit('message', {'msg': message['username'] + ' : ' + message['msg'],"sentByMe":message['sentByMe']}, room=message["room"])
+    emit('message', {'msg': message['username'] + ' : ' + message['msg'],"sentByMe":message['sentByMe'],"img":"none","video":"none"}, room=message["room"])
 @socketio.on('image')
 def image(message):
     room = str(message['room'])
-    emit('imagesend',{'msg':'img',"img":message['img'],"sentByMe":message['sentByMe']}, room=message["room"])
+    emit('imagesend',{'msg':'img',"img":message['img'],"sentByMe":message['sentByMe'],"video":"none"}, room=message["room"])
 @socketio.on('video')
 def video(message):
     room = str(message['room'])
-    emit('videosend',{'msg':'video',"video":message['video'],'sentByMe':message['sentByMe']},room = message["room"])
+    emit('videosend',{'msg':'video',"video":message['video'],'sentByMe':message['sentByMe'],"video":"none"},room = message["room"])
 if __name__ == '__main__':
     socketio.run(app,debug=False)
