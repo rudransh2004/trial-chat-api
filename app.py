@@ -43,6 +43,6 @@ def video(message):
 @socketio.on('videofile')
 def videofile(message):
     room = str(message['room'])
-    emit('videodata',{'msg':'link',"video":"none",'sendByMe':message['sentByMe'],"videofile":message["videofile"],"img":"none","send":"true"},room = message["room"])
+    emit('videodata',{'msg':'link',"video":"none",'sentByMe':message['sentByMe'],"videofile":message["videofile"],"img":"none","send":"true"},room = message["room"])
 if __name__ == '__main__':
     socketio.run(app,debug=False)
