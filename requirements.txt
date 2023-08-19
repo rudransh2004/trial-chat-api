@@ -6,5 +6,5 @@ python-engineio==3.13.2
 gunicorn
 eventlet
 gevent-websocket
-Werkzeug
+Werkzeug==2.0.3
 
