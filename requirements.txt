@@ -3,8 +3,9 @@ Flask==2.0.3
 Flask-Session
 python-socketio==4.6.0
 python-engineio==3.13.2
-gunicorn
+gunicorn==20.1.0
 eventlet==0.30.2
+eventlet==0.30.2 
 gevent-websocket
 Werkzeug==2.0.3
 
