@@ -1,8 +1,8 @@
-Flask_SocketIO
+Flask_SocketIO==4.3.1
 Flask
 Flask-Session
-python-socketio
-python-engineio
+python-socketio==4.6.0
+python-engineio==3.13.2
 gunicorn
 eventlet
 gevent-websocket
